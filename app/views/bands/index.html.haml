@@ -1,0 +1,7 @@
+%a{:href => '/bands/new'}Create
+
+%p
+- @bands.each do |band|
+  = band.name
+  = band.genre
+  = band.members
