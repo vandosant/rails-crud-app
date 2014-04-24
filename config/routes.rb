@@ -10,4 +10,10 @@ Rails.application.routes.draw do
   get '/bands/new', to: 'bands#new'
 
   post '/bands', to: 'bands#create'
+
+  get '/bands/:id', to: 'bands#show'
+
+  get '/bands/:id/edit', to: 'bands#edit'
+
+  put '/bands/:id', to: 'bands#update'
 end

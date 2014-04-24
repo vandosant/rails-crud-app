@@ -14,4 +14,18 @@ class BandsController < ApplicationController
     band.save
     redirect_to '/bands'
   end
+
+  def show
+    @band = Band.find(params[:id])
+  end
+
+  def edit
+    @band = Band.find(params[:id])
+  end
+
+  def update
+    band = Band.find(params[:id])
+    band.update_attributes(:name => params[:name], :genre => params[:genre], :members => params[:members])
+    redirect_to '/bands'
+  end
 end
