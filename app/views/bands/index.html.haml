@@ -3,5 +3,6 @@
 %p
 - @bands.each do |band|
   %a{:href => "/bands/#{band.id}"}=band.name
-  = band.genre
-  = band.members
+  %a{:href => "/bands/#{band.id}"}= band.genre
+  %a{:href => "/bands/#{band.id}"}= band.members
+  %br
