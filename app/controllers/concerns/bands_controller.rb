@@ -28,4 +28,10 @@ class BandsController < ApplicationController
     band.update_attributes(:name => params[:name], :genre => params[:genre], :members => params[:members])
     redirect_to '/bands'
   end
+
+  def delete
+    band = Band.find(params[:id])
+    band.destroy
+    redirect_to '/bands'
+  end
 end

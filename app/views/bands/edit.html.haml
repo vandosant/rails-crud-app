@@ -7,3 +7,7 @@
   %label # of members
   %input{:type => "text", :name => "members", :value => @band.members}
   %button{:type => "submit", :value => "Update Band"} Update Band
+
+%form{:action => "/bands/#{@band.id}", :method => 'post'}
+  %input{:type => 'hidden', :name => '_method', :value => 'delete'}
+  %button{:type => 'submit', :value => "Delete"} Delete

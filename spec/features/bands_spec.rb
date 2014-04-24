@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'bands' do
-  scenario 'can create, view, and edit a band' do
+  scenario 'can create, view, edit, and delete a band' do
     visit '/'
 
     click_link "Bands"
@@ -33,5 +33,15 @@ feature 'bands' do
     expect(page).to have_content "Ska"
     expect(page).to have_content 6
     expect(page).to have_no_content "MWRH"
+
+    click_link "Mountain Warfare Ready Heroes"
+
+    click_link "Edit"
+
+    click_button "Delete"
+
+    expect(page).to have_no_content "Mountain Warfare Ready Heroes"
+    expect(page).to have_no_content "Ska"
+    expect(page).to have_no_content 6
   end
 end
