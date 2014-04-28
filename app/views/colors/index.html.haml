@@ -1,0 +1,20 @@
+%div{:id => 'header_container'}
+  %header
+    %h1 Colors
+    %a{:href => '/colors/new'}Add Color
+
+%div{:id => 'content_container'}
+  %table{:class => 'dataset'}
+    %tr
+      %td Name
+      %td Primary?
+      %td Spectrum
+    - @colors.each do |color|
+      %tr
+        %td
+          = color.name
+        %td
+          = (color.primary).to_s.capitalize
+        %td
+          = color.spectrum
+          Spectrum

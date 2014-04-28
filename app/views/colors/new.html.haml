@@ -1,0 +1,8 @@
+%form{:action => '/colors', :method => 'post'}
+  %label Name
+  %input{:type => 'text', :name => 'name'}
+  %label Primary?
+  %input{:type => 'checkbox', :name => 'primary'}
+  %label Spectrum
+  %input{:type => 'text', :select => 'yes', :name => 'spectrum'}
+  %button{:type => 'submit', :value => 'add color'} Add Color

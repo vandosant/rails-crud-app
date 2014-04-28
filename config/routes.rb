@@ -18,4 +18,10 @@ Rails.application.routes.draw do
   put '/bands/:id', to: 'bands#update'
 
   delete '/bands/:id', to: 'bands#delete'
+
+  get '/colors', to: 'colors#index'
+
+  get '/colors/new', to: 'colors#new'
+
+  post '/colors', to: 'colors#create'
 end
