@@ -23,4 +23,19 @@ feature 'color CRUD' do
     expect(page).to have_content "True"
     expect(page).to have_content "Yellow Spectrum"
   end
+
+  scenario 'users see an error if form is incomplete' do
+    visit '/'
+
+    click_link "Colors"
+
+    click_link "Add Color"
+
+    fill_in "name", with: "Yellow"
+    check "primary"
+
+    click_button "Add Color"
+
+    expect(page).to have_content "error"
+  end
 end

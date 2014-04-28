@@ -1,4 +1,13 @@
 %form{:action => '/colors', :method => 'post'}
+  %input{:name => "authenticity_token", :type => "hidden", :value => "#{form_authenticity_token}"}
+  - if @color.errors.present?
+    %div{:class => 'errors'}
+    %h1 There was an error
+    %ul
+      %div{:class => 'error_list'}
+    - @color.errors.full_messages.each do |message|
+      %li
+        = message
   %label Name
   %input{:type => 'text', :name => 'name'}
   %label Primary?

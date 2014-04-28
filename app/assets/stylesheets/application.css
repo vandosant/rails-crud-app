@@ -47,6 +47,24 @@ nav {
     border: 1px solid dimgray;
 }
 
+/*error styling*/
+.errors {
+    background: #efefef;
+    border: 1px solid maroon;
+}
+
+.errors h1 {
+    margin: 0;
+    padding: .5em;
+    font-size: 1em;
+    background: maroon;
+    color: white;
+}
+
+.error-list {
+    color: black;
+}
+
 /* ----- =menu (Primary Nav) ----- */
 
 
