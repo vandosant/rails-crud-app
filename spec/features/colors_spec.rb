@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'color CRUD' do
-  scenario 'users can add a color' do
+  scenario 'users can add and view a color' do
     visit '/'
 
     click_link "Colors"
@@ -23,6 +23,13 @@ feature 'color CRUD' do
     expect(page).to have_content "True"
     expect(page).to have_content "Yellow Spectrum"
     expect(page).to have_content "Color successfully added"
+
+    click_link "Yellow"
+
+    expect(page).to have_content "Yellow"
+    expect(page).to have_content "True"
+    expect(page).to have_content "Yellow Spectrum"
+    expect(page).to have_no_content "Add Color"
   end
 
   scenario 'users see an error if form is incomplete' do

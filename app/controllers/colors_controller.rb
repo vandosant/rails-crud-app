@@ -19,4 +19,8 @@ class ColorsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @color = Color.find(params[:id])
+  end
 end

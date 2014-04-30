@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get '/colors/new', to: 'colors#new'
 
   post '/colors', to: 'colors#create'
+
+  get '/colors/:id', to: 'colors#show'
 end

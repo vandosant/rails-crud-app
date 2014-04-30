@@ -17,7 +17,8 @@
     - @colors.each do |color|
       %tr
         %td
-          = color.name
+          %a{:href => "/colors/#{color.id}"}
+            = color.name
         %td
           = (color.primary).to_s.capitalize
         %td
