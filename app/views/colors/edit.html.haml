@@ -1,0 +1,20 @@
+%div{:id => 'header_container'}
+  %header
+    %h1 Edit Color
+
+%div{:id => 'form_container'}
+  %form{:action => "/colors/#{@color.id}", :method => 'post'}
+    %input{:name => "_method", :type => "hidden", :value => "PUT"}
+    %input{:name => "authenticity_token", :type => "hidden", :value => "#{form_authenticity_token}"}
+    - if @color.errors.present?
+      %div{:class => 'error_list'}
+        - @color.errors.each do |_, message|
+          %li
+            = message
+    %label Name
+    %input{:type => 'text', :name => 'name', :value => @color.name}
+    %label Primary?
+    %input{:type => 'checkbox', :name => 'primary', :value => @color.primary}
+    %label Spectrum
+    %input{:type => 'text', :select => 'yes', :name => 'spectrum', :value => @color.spectrum}
+    %button{:type => 'submit', :value => 'add color'} Update Color

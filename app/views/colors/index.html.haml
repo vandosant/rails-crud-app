@@ -21,6 +21,7 @@
             = color.name
         %td
           = (color.primary).to_s.capitalize
+          = "False" unless color.primary
         %td
           = color.spectrum
           Spectrum

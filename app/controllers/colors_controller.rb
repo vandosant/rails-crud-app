@@ -23,4 +23,19 @@ class ColorsController < ApplicationController
   def show
     @color = Color.find(params[:id])
   end
+
+  def edit
+    @color = Color.find(params[:id])
+  end
+
+  def update
+    @color = Color.find(params[:id])
+    @color.update(:name => params[:name], :primary => params[:primary], :spectrum => params[:spectrum])
+
+    if @color.save
+      redirect_to '/colors', notice: "Color successfully updated"
+    else
+      render :edit
+    end
+  end
 end
