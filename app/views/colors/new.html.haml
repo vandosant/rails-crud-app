@@ -1,17 +1,19 @@
-%form{:action => '/colors', :method => 'post'}
-  %input{:name => "authenticity_token", :type => "hidden", :value => "#{form_authenticity_token}"}
-  - if @color.errors.present?
-    %div{:class => 'errors'}
-    %h1 There was an error
-    %ul
+%div{:id => 'header_container'}
+  %header
+    %h1 Add Color
+
+%div{:id => 'form_container'}
+  %form{:action => '/colors', :method => 'post'}
+    %input{:name => "authenticity_token", :type => "hidden", :value => "#{form_authenticity_token}"}
+    - if @color.errors.present?
       %div{:class => 'error_list'}
-    - @color.errors.full_messages.each do |message|
-      %li
-        = message
-  %label Name
-  %input{:type => 'text', :name => 'name'}
-  %label Primary?
-  %input{:type => 'checkbox', :name => 'primary'}
-  %label Spectrum
-  %input{:type => 'text', :select => 'yes', :name => 'spectrum'}
-  %button{:type => 'submit', :value => 'add color'} Add Color
+        - @color.errors.each do |_, message|
+          %li
+            = message
+    %label Name
+    %input{:type => 'text', :name => 'name'}
+    %label Primary?
+    %input{:type => 'checkbox', :name => 'primary'}
+    %label Spectrum
+    %input{:type => 'text', :select => 'yes', :name => 'spectrum'}
+    %button{:type => 'submit', :value => 'add color'} Add Color

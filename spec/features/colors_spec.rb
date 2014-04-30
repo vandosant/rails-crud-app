@@ -31,11 +31,12 @@ feature 'color CRUD' do
 
     click_link "Add Color"
 
-    fill_in "name", with: "Yellow"
+    fill_in "name", with: ""
     check "primary"
 
     click_button "Add Color"
 
-    expect(page).to have_content "error"
+    expect(page).to have_content "A spectrum is required"
+    expect(page).to have_content "A color is required"
   end
 end
