@@ -22,6 +22,7 @@ feature 'color CRUD' do
     expect(page).to have_content "Yellow"
     expect(page).to have_content "True"
     expect(page).to have_content "Yellow Spectrum"
+    expect(page).to have_content "Color successfully added"
   end
 
   scenario 'users see an error if form is incomplete' do

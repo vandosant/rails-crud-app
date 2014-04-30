@@ -14,7 +14,7 @@ class ColorsController < ApplicationController
     @color.spectrum = params[:spectrum]
 
     if @color.save
-      redirect_to '/colors'
+      redirect_to '/colors', notice: "Color successfully added"
     else
       render :new
     end
