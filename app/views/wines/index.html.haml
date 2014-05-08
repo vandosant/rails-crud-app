@@ -1,0 +1,26 @@
+%div{:id => 'header_container'}
+  %header
+    %h1 Wines
+    =link_to('New wine', :new_wine)
+
+%div{:id => 'content_container'}
+  %table{:class => 'dataset'}
+    %tr
+      %td
+        Name
+      %td
+        Style
+      %td
+        Color
+      %td
+        Rating
+    -@wines.each do |wine|
+      %tr
+        %td
+          =wine.name
+        %td
+          =wine.style
+        %td
+          =wine.color
+        %td
+          =wine.rating
