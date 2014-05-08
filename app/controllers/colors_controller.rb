@@ -38,4 +38,10 @@ class ColorsController < ApplicationController
       render :edit
     end
   end
+
+  def delete
+    @color = Color.find(params[:id])
+    @color.destroy
+    redirect_to '/colors', notice: "Color successfully deleted"
+  end
 end

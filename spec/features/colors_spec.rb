@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'color CRUD' do
-  scenario 'users can add, view and update a color' do
+  scenario 'users can add, view, update and delete a color' do
     visit '/'
 
     click_link "Colors"
@@ -42,6 +42,15 @@ feature 'color CRUD' do
     expect(page).to have_content "False"
     expect(page).to have_content "Yellow Spectrum"
     expect(page).to have_content "Color successfully updated"
+
+    click_link "Yellow"
+    click_link "Edit"
+    click_button "Delete"
+
+    expect(page).to have_no_content "Yellowish"
+    expect(page).to have_no_content "False"
+    expect(page).to have_no_content "Yellow Spectrum"
+    expect(page).to have_content "Color successfully deleted"
   end
 
   scenario 'users see an error if form is incomplete' do

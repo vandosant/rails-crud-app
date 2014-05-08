@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   get '/colors/:id/edit', to: 'colors#edit'
 
   put '/colors/:id', to: 'colors#update'
+
+  delete '/colors/:id', to: 'colors#delete'
 end

@@ -4,7 +4,7 @@
 
 %div{:id => 'form_container'}
   %form{:action => "/colors/#{@color.id}", :method => 'post'}
-    %input{:name => "_method", :type => "hidden", :value => "PUT"}
+    %input{:name => "_method", :type => "hidden", :value => "put"}
     %input{:name => "authenticity_token", :type => "hidden", :value => "#{form_authenticity_token}"}
     - if @color.errors.present?
       %div{:class => 'error_list'}
@@ -18,3 +18,5 @@
     %label Spectrum
     %input{:type => 'text', :select => 'yes', :name => 'spectrum', :value => @color.spectrum}
     %button{:type => 'submit', :value => 'add color'} Update Color
+
+= button_to 'Delete', { action: "delete", id: @color.id }, method: :delete
