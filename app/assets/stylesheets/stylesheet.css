@@ -20,6 +20,10 @@ nav {
     width: 980px;
 }
 
+#form_container {
+    width: 400px;
+}
+
 .dataset {
     margin: auto;
     width: 700px;

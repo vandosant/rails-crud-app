@@ -1,10 +1,21 @@
-=form_for(@wine) do |f|
-  =f.label('Name')
-  =f.text_field(:name)
-  =f.label('Style')
-  =f.text_field(:style)
-  =f.label('Color')
-  =f.text_field(:color)
-  =f.label('Rating')
-  =f.text_field(:rating)
-  =f.submit('Create')
+%div{:id => 'header_container'}
+  %header
+    %h1 Add Wine
+
+%div{:id => 'form_container'}
+  =form_for(@wine) do |f|
+    -if @wine.errors.present?
+      %div{:class => 'error_list'}
+        -@wine.errors.each do |property, error|
+          =property
+          =error
+          %br
+    =f.label('Name')
+    =f.text_field(:name)
+    =f.label('Style')
+    =f.text_field(:style)
+    =f.label('Color')
+    =f.text_field(:color)
+    =f.label('Rating')
+    =f.text_field(:rating)
+    =f.submit('Create')

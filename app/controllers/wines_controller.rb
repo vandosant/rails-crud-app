@@ -13,7 +13,11 @@ class WinesController < ApplicationController
     wine.style = params[:wine][:style]
     wine.color = params[:wine][:color]
     wine.rating = params[:wine][:rating]
-    wine.save
-    redirect_to :wines
+    if wine.save
+      redirect_to :wines
+    else
+      @wine = wine
+      render :new
+    end
   end
 end
