@@ -17,7 +17,7 @@
     -@wines.each do |wine|
       %tr
         %td
-          =wine.name
+          =link_to(wine.name, wine_path(wine))
         %td
           =wine.style
         %td
