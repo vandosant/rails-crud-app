@@ -1,0 +1,25 @@
+#form_container {
+  .form-input {
+    padding-bottom: 1em;
+    label {
+      display: inline-block;
+      width: 80px;
+    }
+    input[type=text] {
+      outline-color: maroon;
+    }
+  }
+  .field_with_errors {
+    display: inline-block;
+  }
+  .form-submit {
+    margin-left: 84px;
+    input[type=submit] {
+      border: 0;
+      background: maroon;
+      color: white;
+      outline-color: black;
+    }
+  }
+
+}

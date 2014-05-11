@@ -4,18 +4,22 @@
 
 %div{:id => 'form_container'}
   =form_for(@wine) do |f|
-    -if @wine.errors.present?
+    -if @wine.errors.any?
       %div{:class => 'error_list'}
-        -@wine.errors.each do |property, error|
-          =property
-          =error
+        -@wine.errors.full_messages.each do |message|
+          =message
           %br
-    =f.label('Name')
-    =f.text_field(:name)
-    =f.label('Style')
-    =f.text_field(:style)
-    =f.label('Color')
-    =f.text_field(:color)
-    =f.label('Rating')
-    =f.text_field(:rating)
-    =f.submit('Create')
+    .form-input
+      =f.label('Name')
+      =f.text_field(:name)
+    .form-input
+      =f.label('Style')
+      =f.text_field(:style)
+    .form-input
+      =f.label('Color')
+      =f.text_field(:color)
+    .form-input
+      =f.label('Rating')
+      =f.text_field(:rating)
+    .form-submit
+      =f.submit('Create')
