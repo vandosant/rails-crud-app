@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'wine CRUD' do
-  scenario 'users can add and view a wine' do
+  scenario 'users can add, view, and edit a wine' do
     visit '/'
 
     click_link 'Wines'
@@ -24,6 +24,19 @@ feature 'wine CRUD' do
     expect(page).to have_content 'Thousand Oaks Reserve'
     expect(page).to have_content 'Cabernet'
     expect(page).to have_content 92
+
+    click_link 'Edit'
+
+    expect(page).to have_field('Name', with: 'Thousand Oaks Reserve')
+    expect(page).to have_field('Style', with: 'Cabernet')
+    fill_in 'wine_rating', with: 90
+    fill_in 'wine_color', with: 'Purple'
+
+    click_button 'Update'
+
+    expect(page).to have_content 'Cabernet'
+    expect(page).to have_content 90
+    expect(page).to have_content 'Purple'
   end
 
   scenario 'users see errors for new wines without names or styles' do
