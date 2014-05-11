@@ -1,14 +1,21 @@
-= form_for @wine do |f|
-  - if @wine.errors.present?
-    - @wine.errors.full_messages.each do |message|
-      = message
-      %br
-  = f.label :name
-  = f.text_field(:name)
-  = f.label :style
-  = f.text_field(:style)
-  = f.label :color
-  = f.text_field(:color)
-  = f.label :rating
-  = f.text_field(:rating)
-  = f.submit 'Update'
+#form_container
+  = form_for @wine do |f|
+    - if @wine.errors.present?
+      .error_list
+        - @wine.errors.full_messages.each do |message|
+          = message
+          %br
+    .form-input
+      = f.label :name
+      = f.text_field(:name)
+    .form-input
+      = f.label :style
+      = f.text_field(:style)
+    .form-input
+      = f.label :color
+      = f.text_field(:color)
+    .form-input
+      = f.label :rating
+      = f.text_field(:rating)
+    .form-submit
+      = f.submit 'Update'
