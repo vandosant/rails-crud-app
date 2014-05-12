@@ -42,4 +42,10 @@ class WinesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    wine = Wine.find(params[:id])
+    wine.destroy
+    redirect_to '/wines'
+  end
 end

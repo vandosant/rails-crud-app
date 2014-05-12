@@ -19,3 +19,6 @@
       = f.text_field(:rating)
     .form-submit
       = f.submit 'Update'
+%br
+#form_container
+  =button_to "Delete", "/wines/#{@wine.id}", id: @wine.id, method: 'delete'
