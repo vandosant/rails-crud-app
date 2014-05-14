@@ -34,4 +34,6 @@ Rails.application.routes.draw do
   delete '/colors/:id', to: 'colors#delete'
 
   resources :wines
+
+  resources :cars
 end

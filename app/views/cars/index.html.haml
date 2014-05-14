@@ -1,0 +1,26 @@
+#header_container
+  %header
+    %h1
+      Cars
+
+#content_container
+  %table.dataset
+    %tr
+      %td
+        Make
+      %td
+        Model
+      %td
+        Year
+      %td
+        Engine
+      %td
+        Turbocharged
+    - @cars.each do |car|
+      %tr
+        %td= car.make
+        %td= car.model
+        %td= car.year
+        %td= car.engine
+        %td= car.turbocharged.to_s.capitalize
+  = link_to 'Add Car', new_car_path
