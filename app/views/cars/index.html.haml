@@ -18,7 +18,7 @@
         Turbocharged
     - @cars.each do |car|
       %tr
-        %td= car.make
+        %td= link_to car.make, car_path(car.id)
         %td= car.model
         %td= car.year
         %td= car.engine

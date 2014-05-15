@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'cars CRUD' do
-  it 'allows users to add cars' do
+  it 'allows users to add and view cars' do
     visit '/'
 
     click_link 'Cars'
@@ -19,9 +19,12 @@ describe 'cars CRUD' do
     click_button 'Add'
 
     expect(page).to have_content 'Cars'
-    expect(page).to have_content 'Buick'
     expect(page).to have_content 1983
     expect(page).to have_content 'True'
-  end
 
+    click_link 'Buick'
+
+    expect(page).to have_content 'Grand National'
+    expect(page).to have_content 'V6'
+  end
 end
