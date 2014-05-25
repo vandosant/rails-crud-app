@@ -1,0 +1,23 @@
+#form_container
+  - if @car.errors.present?
+    .error_list
+      - @car.errors.full_messages.each do |error|
+        %li= error
+  = form_for @car do |f|
+    .form-input
+      = f.label :make
+      = f.text_field :make
+    .form-input
+      = f.label :model
+      = f.text_field :model
+    .form-input
+      = f.label :year
+      = f.number_field :year
+    .form-input
+      = f.label :engine
+      = f.select(:engine, %w(4-cylinder V6 V8 V10 V12 Rotary), include_blank: true)
+    .form-input
+      = f.label :turbocharged
+      = f.check_box(:turbocharged)
+    .form-submit
+      = f.submit

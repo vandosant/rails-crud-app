@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'cars CRUD' do
-  it 'allows users to add and view cars' do
+  it 'allows users to add, view, and update cars' do
     visit '/'
 
     click_link 'Cars'
@@ -10,7 +10,7 @@ describe 'cars CRUD' do
 
     click_link 'Add Car'
 
-    click_button 'Add'
+    click_button 'Create Car'
 
     expect(page).to have_content 'Make is required.'
     expect(page).to have_content 'Model is required.'
@@ -22,15 +22,24 @@ describe 'cars CRUD' do
     select 'V6'
     check 'Turbocharged'
 
-    click_button 'Add'
+    click_button 'Create Car'
 
     expect(page).to have_content 'Cars'
     expect(page).to have_content 1983
-    expect(page).to have_content 'True'
+    expect(page).to have_content 'V6'
 
     click_link 'Buick'
 
     expect(page).to have_content 'Grand National'
     expect(page).to have_content 'V6'
+
+    click_link 'Edit'
+
+    expect(page).to have_content 'Edit Car'
+    fill_in 'Model', with: 'GNX'
+
+    click_button 'Update Car'
+
+    expect(page).to have_content 'GNX'
   end
 end
