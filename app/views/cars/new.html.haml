@@ -2,6 +2,8 @@
   %h1 Add Car
 
   #form_container
+    = @car.errors.full_messages.each do |error|
+      = error
     = form_for @car do |f|
       .form-input
         = f.label :make

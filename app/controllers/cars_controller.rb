@@ -4,8 +4,13 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.create(make: params[:car][:make], model: params[:car][:model], year: params[:car][:year], engine: params[:car][:engine], turbocharged: params[:car][:turbocharged])
-    redirect_to cars_path
+    car = Car.new(allowed_parameters)
+    if car.save
+      redirect_to cars_path
+    else
+      @car = car
+      render :new
+    end
   end
 
   def index
@@ -14,5 +19,11 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+  end
+
+  private
+
+  def allowed_parameters
+    params.require(:car).permit(:model, :make, :year, :engine, :turbocharged)
   end
 end

@@ -10,6 +10,12 @@ describe 'cars CRUD' do
 
     click_link 'Add Car'
 
+    click_button 'Add'
+
+    expect(page).to have_content 'Make is required.'
+    expect(page).to have_content 'Model is required.'
+    expect(page).to have_content 'Year is required.'
+
     fill_in 'Make', with: 'Buick'
     fill_in 'Model', with: 'Grand National'
     fill_in 'Year', with: 1983
