@@ -16,11 +16,5 @@
         Engine
       %td
         Turbocharged
-    - @cars.each do |car|
-      %tr
-        %td= link_to car.make, car_path(car.id)
-        %td= car.model
-        %td= car.year
-        %td= car.engine
-        %td= car.turbocharged.to_s.capitalize
+    = render 'cars'
   = link_to 'Add Car', new_car_path

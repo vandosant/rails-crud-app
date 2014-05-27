@@ -1,0 +1,7 @@
+- @cars.each do |car|
+  %tr
+    %td= link_to car.make, car_path(car.id)
+    %td= car.model
+    %td= car.year
+    %td= car.engine
+    %td= car.turbocharged.to_s.capitalize
