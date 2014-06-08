@@ -1,0 +1,12 @@
+= form_for @instrument, url: {action: "create"} do |f|
+  = f.label :kind
+  = f.select :kind, @choices
+  = f.label :manufacturer
+  = f.text_field :manufacturer
+  = f.label :model
+  = f.text_field :model
+  = f.label :year
+  = f.date_select :year, :start_year => 1900, :discard_month => true, :discard_day => true
+  = f.label :color
+  = f.text_field :color
+  = f.submit 'Add Instrument'

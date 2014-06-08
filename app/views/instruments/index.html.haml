@@ -1,0 +1,33 @@
+#header_container
+  %header
+    %h1
+      Instruments
+
+#content_container
+  %table.dataset
+    %tr
+      %td
+        Kind
+      %td
+        Manufacturer
+      %td
+        Model
+      %td
+        Year
+      %td
+        Color
+    - if @instruments.present?
+      - @instruments.each do |instrument|
+        %tr
+          %td
+            = instrument.kind
+          %td
+            = instrument.manufacturer
+          %td
+            = instrument.model
+          %td
+            = instrument.year
+          %td
+            = instrument.color
+
+  = link_to 'Add Instrument', new_band_instrument_path

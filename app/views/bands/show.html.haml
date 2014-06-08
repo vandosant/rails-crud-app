@@ -1,5 +1,6 @@
 = @band.name
 = @band.genre
 = @band.members
+= link_to 'Instruments', band_instruments_path(@band)
 
 %a{:href => "/bands/#{@band.id}/edit"}Edit

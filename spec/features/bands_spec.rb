@@ -44,4 +44,32 @@ feature 'bands' do
     expect(page).to have_no_content "Ska"
     expect(page).to have_no_content 6
   end
+
+  scenario 'can create instruments for the band' do
+    band = Band.create!(name: "Special Riders", genre: "Blues", members: 4)
+
+    visit '/'
+
+    click_link "Bands"
+
+    click_link "Special Riders"
+
+    click_link "Instruments"
+
+    expect(page).to have_content 'Instruments'
+
+    click_link "Add Instrument"
+
+    select 'Electric Guitar'
+    fill_in 'Manufacturer', with: 'Fender'
+    fill_in 'Model', with: 'Telecaster'
+    select 1977
+    fill_in 'Color', with: 'Yellow'
+    click_button 'Add Instrument'
+
+    expect(page).to have_content 'Instruments'
+    expect(page).to have_content 'Telecaster'
+    expect(page).to have_content '1977'
+    expect(page).to have_content 'Yellow'
+  end
 end

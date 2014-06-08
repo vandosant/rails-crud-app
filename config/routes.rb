@@ -19,6 +19,10 @@ Rails.application.routes.draw do
 
   delete '/bands/:id', to: 'bands#delete'
 
+  resources :bands do
+    resources :instruments
+  end
+
   get '/colors', to: 'colors#index'
 
   get '/colors/new', to: 'colors#new'

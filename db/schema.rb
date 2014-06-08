@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514005425) do
+ActiveRecord::Schema.define(version: 20140608194751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 20140514005425) do
     t.boolean "primary"
     t.string  "spectrum"
   end
+
+  create_table "instruments", force: true do |t|
+    t.integer  "band_id"
+    t.string   "manufacturer"
+    t.string   "model"
+    t.date     "year"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "kind"
+  end
+
+  add_index "instruments", ["band_id"], name: "index_instruments_on_band_id", using: :btree
 
   create_table "wines", force: true do |t|
     t.string  "name"
